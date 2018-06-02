@@ -1,0 +1,70 @@
+body h1, h2, h3, h4, button, a {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.result {
+    text-align: center;
+}
+
+.quiz {
+    margin-top: 50px;
+}
+
+
+input {
+    width: 15%;
+    border: none;
+    border-bottom: 2px solid;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.btn, a {
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 18px;
+    border-radius: 0px;
+}
+
+li {
+    font-size: 18px;
+    letter-spacing: 1.2px;
+}
+
+
+.budget_val {
+    text-decoration: underline;
+    margin-left:20px;
+    text-align: center
+}
+
+#custom_item {
+    display: block;
+}
+
+/* REMOVE INPUT OUTLINE */
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+#chart {
+    margin-left: 450px;
+}
+
+.bar {
+  float: left;
+  width: 30px;
+  margin-right: 20px;
+  background-color: #F4F5F7;
+  border: 1px solid #C5C5C5;
+}

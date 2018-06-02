@@ -1,0 +1,15 @@
+<% include partials/header %>
+
+<div class="container">
+
+<h1>Expense Tracker</h1>
+<br>
+
+ <% if(budgets == null) { %>
+ <a class="btn" href="/users/<%= currentUser.username %>/budget/new">Add a Budget</a>
+ <% } else { %>
+ <a class="btn" href="/users/<%= currentUser.username %>/budget/<%= budgets._id %>">View Budget</a>
+ <a class="btn" href="/users/<%= currentUser.username %>/budget/<%= budgets._id %>/edit">Edit Budget</a>
+ <% } %>
+
+</div>

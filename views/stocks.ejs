@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+<div class="container text-center">
+       <h1>S&P 500</h1>
+ <br>
+ <% var dataObject = data["Time Series (Daily)"] %>  
+ <% for(param in dataObject) { %>
+<h3>Open: <%= dataObject[param]["1. open"] %></h3>
+<h3>Close: <%= dataObject[param]["4. close"] %></h3> 
+<br>
+<p>As of: <%= Object.keys(dataObject)[0] %></p>
+<%  break; %>
+ <% } %>	
+ </div>
+       
+       
+<% include partials/footer %>
+
+

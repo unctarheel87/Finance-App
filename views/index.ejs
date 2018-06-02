@@ -1,0 +1,43 @@
+<% include partials/header %>
+
+<div class="container">
+    <header class="jumbotron">
+        <h1>Welcome to CanIRetire.com!</h1>
+        <p>Take our quick quiz to see if you're on track</p>
+    </header>
+
+<div class="row quiz">
+<form action='/' method="GET">
+    <h2>I am <input type="number" name="age"> years old, I make $ <input type="number" name="salary"> a year, and I have saved $ <input type="number" id="amount" name="amount"> for retirement.</h2>
+    <button class="btn btn-lg btn-primary">Submit</button>
+    <a class="btn btn-lg btn-primary" href='/'>Reset</a>
+</form>
+
+<h2 class="result">Result:</h2>
+<br>
+
+
+
+<% var n = Math.pow(1.07, 67 - age) %>
+<% var futureSalary = salary * Math.pow(1.015, 67 - age) %>
+<% var total = amount * n %>
+<% var eachYear = (futureSalary * 10)/((n - 1)/0.07) %>
+<% console.log(age) %>    
+<% if(total < futureSalary * 10) { %>
+    <% var rate = Math.floor((eachYear/salary) * 100) %>
+    <h2 class="result text-info">You are behind for retirement! &nbsp You should be saving at least <strong><%= rate %>%</strong> to get on track</h2>
+<% } else if (total >= futureSalary * 10) { %>
+    <h2 class="result text-success">You are on track!</h2>
+    <% } %>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<% include partials/footer %>
+
+
+
+
+

@@ -1,0 +1,38 @@
+<% include partials/header %>
+
+<div class="container">
+<h1>Add My Budget</h1>
+<br>
+<form action="/users/<%= currentUser._id%>" method="POST">
+        <li>Rent / Mortgage:</li><input type="number" name="budget[rent]">
+        <li>Utilities:</li><input type="number" name="budget[utility]">
+        <li>Food / Grocery:</li><input type="number" name="budget[food]">
+        <li>Phone / Internet:</li><input type="number" name="budget[phone]">
+        <li>Car Payment:</li><input type="number" name="budget[car]">
+        <li>Social:</li><input type="number" name="budget[social]">
+        <li>Misc:</li><input type="number" name="budget[misc]">
+        <li><span id="custom_name"></span>: <input type="number" name="budget[custom]"></li>
+    
+    <button class="btn btn-primary">Submit</button>
+ </form>
+ <form action="/users/<%= currentUser._id %>/new" method="GET">
+        <li id="custom_list"><input type="text" name="customName" style="width: 10%; margin-right:10px; margin-top:15px" value="<%= customName %>"></li>
+        <button style="margin-top:15px" class="btn btn-success">Add Custom Item</button>
+        <button id="custom_item" style="margin-top:15px" class="btn btn-success" type="button">Add To Budget</button>
+ </form>
+ <%=console.log(user.budgets) %>
+ 
+ 
+</div> 
+<% include partials/footer %>
+
+<script>
+document.getElementById('custom_item').addEventListener('click',function() {
+            var custom_name = document.getElementById("custom_name");
+            var custom_list = document.getElementById("custom_list");
+            
+            custom_list.style.display = "none";
+            custom_name.textContent="<%= customName %>";
+    });
+
+</script>

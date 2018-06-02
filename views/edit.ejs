@@ -1,0 +1,39 @@
+<% include partials/header %>
+
+<div class="container">
+<h1>Update Budget</h1>
+<br>
+<form action="/users/<%= currentUser.username%>/budget/<%= budget._id %>?_method=PUT" method="POST">
+       
+        <li>Rent / Mortgage: <input type="text" name="budget[rent]" value="<%= budget.rent %>"></li>
+        <li>Utilities: <input type="number" name="budget[utility]" value="<%= budget.utility %>"></li>
+        <li>Food / Grocery: <input type="number" name="budget[food]" value="<%= budget.food%>"></li>
+        <li>Phone / Internet: <input type="number" name="budget[phone]" value="<%= budget.phone%>"></li>
+        <li>Car Payment: <input type="number" name="budget[car]" value="<%= budget.car %>"></li>
+        <li>Social: <input type="number" name="budget[social]" value="<%= budget.social %>"></li>
+        <li>Misc: <input type="number" name="budget[misc]" value="<%= budget.misc %>"></li>
+        <li><span id="custom_name"></span>: <input type="number" name="budget[custom]"></li>
+    
+    <button class="btn btn-primary">Submit</button>
+ </form>
+ <form action="/users/<%= currentUser._id %>/edit" method="GET">
+        <li id="custom_list"><input type="text" name="customName" style="width: 10%; margin-right:10px; margin-top:15px"></li>
+        <button style="margin-top:15px" class="btn btn-success">Add Custom Item</button>
+        <button id="custom_item" style="margin-top:15px" class="btn btn-success" type="button">Add To Budget</button>
+ </form>
+
+ 
+ 
+</div> 
+<% include partials/footer %>
+
+<script>
+document.getElementById('custom_item').addEventListener('click',function() {
+            var custom_name = document.getElementById("custom_name");
+            var custom_list = document.getElementById("custom_list");
+            
+            custom_list.style.display = "none";
+            custom_name.textContent="";
+    });
+
+</script>

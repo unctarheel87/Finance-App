@@ -1,0 +1,33 @@
+<% include partials/profileHeader %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+<h1>Your Budget</h1>
+<br>
+            <ul type="none">
+                <li>Rent / Mortgage: <span class="budget_val"><%= budget.rent %></span></li>
+                <li>Utilities: <span class="budget_val"><%= budget.utility %></span></li>
+                <li>Food / Grocery: <span class="budget_val"><%= budget.food %></span></li>
+                <li>Phone / Internet: <span class="budget_val"><%= budget.phone %></span></li>
+                <li>Car Payment: <span class="budget_val"><%= budget.car %></span></li>
+                <li>Social: <span class="budget_val"><%= budget.social %></span></li>
+                <li>Misc: <span class="budget_val"><%= budget.misc %></span></li>
+            </ul>
+        
+           <% var totalMonthly = 0;  %>
+           <% var userBudget = budget.toObject(); %>
+           <% for(param in userBudget) { %>
+           <% if(param !== '_id' && param !== '__v' && param !=='user') { %>
+           <% totalMonthly += userBudget[param] %>
+           <% } %>
+           <% } %>
+         
+           <h2>Monthly Expenses: $<%= totalMonthly %></h2>
+        </div>
+        <div class="col-lg-6">
+            <div id="chart_div"></div>
+        </div>
+    </div>   
+</div>
+<% include partials/footer %>

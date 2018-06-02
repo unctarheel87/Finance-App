@@ -1,0 +1,18 @@
+<% include partials/header %>
+
+<div class="container">
+<form action="/users/<%= currentUser.username %>/budget" method="POST">
+    <ul type="none">
+        <li>Rent / Mortgage:</li><input type="number" name="budget[rent]">
+        <li>Utilities:</li><input type="number" name="budget[utility]">
+        <li>Food / Grocery:</li><input type="number" name="budget[food]">
+        <li>Phone / Internet:</li><input type="number" name="budget[phone]">
+        <li>Car Payment:</li><input type="number" name="budget[car]">
+        <li>Social:</li><input type="number" name="budget[social]">
+        <li>Misc:</li><input type="number" name="budget[misc]">
+    </ul>
+    <button class="btn btn-primary">Submit</button>
+ </form>
+</div>
+
+<% include partials/footer %>
